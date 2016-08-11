@@ -1,0 +1,36 @@
+<h1>
+  {{title}}
+</h1>
+
+<p>Tool Tip</p>
+<input type="text" shcTooltip="Enter your username" tooltipPosition="top" tooltipEvent="focus">
+<hr />
+
+<p>Button</p>
+<button shcButton type="button" icon="fa-check" iconPos="left" label="Click"></button>
+<hr />
+
+<p>Calendar</p>
+<shc-calendar [(ngModel)]="date"></shc-calendar>{{date}}
+<hr />
+
+<p>Messages</p>
+<div>
+    <button type="button" shcButton (click)="showInfo()" label="Info"></button>
+    <button type="button" shcButton (click)="showWarn()" label="Warn"></button>
+    <button type="button" shcButton (click)="showError()" label="Error"></button>
+    <button type="button" shcButton (click)="showMultiple()" label="Multiple"></button>
+    <button type="button" shcButton (click)="clear()" icon="fa-close" style="float:right" label="Clear"></button>
+</div>
+<shc-messages [value]="msgs" [closable]="closable"></shc-messages>
+<hr />
+
+<p>Growl</p>
+<div>
+    <button type="button" shcButton (click)="showGrInfo()" label="Info"></button>
+    <button type="button" shcButton (click)="showGrWarn()" label="Warn"></button>
+    <button type="button" shcButton (click)="showGrError()" label="Error"></button>
+    <button type="button" shcButton (click)="showGrMultiple()" label="Multiple"></button>
+    <button type="button" shcButton (click)="clearGr()" icon="fa-close" style="float:right" label="Clear"></button>
+</div>
+<shc-growl [value]="growl" [sticky]="false" position="top-center"></shc-growl>
