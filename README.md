@@ -8,9 +8,9 @@ so far
 - Growl
 - Messages
 - Tooltip
+- Menu
 
 coming up...
-- Menu
 - ContextMenu
 - MenuBar
 - Tree
