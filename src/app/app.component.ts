@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Message } from './components/common';
+import { ROUTER_DIRECTIVES }  from '@angular/router';
+import { Message, MenuItem } from './components/common';
 import { Tooltip } from './components/tooltip/tooltip';
 import { Button } from './components/button/button';
 import { Calendar } from './components/calendar/calendar';
 import { Messages } from './components/messages/messages';
 import { Growl } from './components/growl/growl';
+import { Menu } from './components/menus/menu';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { Growl } from './components/growl/growl';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [Tooltip, Button, Calendar, Messages, Growl]
+  directives: [ROUTER_DIRECTIVES, Tooltip, Button, Calendar, Messages, Growl, Menu]
 })
 export class AppComponent {
   title = 'Shared Components';
@@ -83,6 +85,25 @@ export class AppComponent {
 
     clearGr() {
         this.growl = [];
+    }
+
+    //Menu
+    private items: MenuItem[];
+    ngOnInit() {
+        this.items = [{
+            label: 'File',
+            items: [
+                {label: 'New', icon: 'fa-plus'},
+                {label: 'Open', icon: 'fa-download'}
+            ]
+        },
+        {
+            label: 'Edit',
+            items: [
+                {label: 'Undo', icon: 'fa-refresh'},
+                {label: 'Redo', icon: 'fa-repeat'}
+            ]
+        }];
     }
 
     
