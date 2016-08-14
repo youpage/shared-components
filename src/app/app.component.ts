@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES }  from '@angular/router';
 import { Message, MenuItem } from './components/common';
-import { Tooltip } from './components/tooltip/tooltip';
-import { Button } from './components/button/button';
-import { Calendar } from './components/calendar/calendar';
-import { Messages } from './components/messages/messages';
-import { Growl } from './components/growl/growl';
-import { Menu } from './components/menus/menu';
-
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES, Tooltip, Button, Calendar, Messages, Growl, Menu]
+  directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent {
   title = 'Shared Components';
@@ -50,6 +43,10 @@ export class AppComponent {
         this.msgs.push({severity:'info', summary:'Message 1', detail:'PrimeNG rocks'});
         this.msgs.push({severity:'info', summary:'Message 2', detail:'PrimeUI rocks'});
         this.msgs.push({severity:'info', summary:'Message 3', detail:'PrimeFaces rocks'});
+    }
+
+    clear() {
+        this.msgs = [];
     }
 
   //Growl

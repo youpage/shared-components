@@ -1,14 +1,20 @@
 /* tslint:disable:no-unused-variable */
 
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
+  TestBed,
+  ComponentFixture,
   async, inject
 } from '@angular/core/testing';
+import { Component } from '@angular/core';
 import { AppComponent } from './app.component';
 
-beforeEachProviders(() => [AppComponent]);
+//beforeEachProviders(() => [AppComponent]);
+@Component({
+  template: '',
+  directives: [AppComponent]
+})
+class TestComponent {
+}
 
 describe('App: SharedComponents', () => {
   it('should create the app',

@@ -1,22 +1,21 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { enableProdMode, provide } from '@angular/core';
-import { AppComponent, environment } from './app/';
-import { APP_ROUTER_PROVIDERS } from './app/app.routes';
-import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+/**
+ * dynamic Just-In-Time (JIT) compiler
+ * compiles the application in the browser and then launches the app
+ */
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 
-if (environment.production) {
-  enableProdMode();
-}
+platformBrowserDynamic().bootstrapModule(AppModule);
 
-bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS,
-  { provide: LocationStrategy,
-    useClass: PathLocationStrategy //== the default "HTML 5 pushState" style.
-    //useClass: HashLocationStrategy //== the "hash # URL" style. 
-  },
-  disableDeprecatedForms(),
-  provideForms()
-])
-.catch((err: any) => console.error(err));
 
+/** 
+ * static Ahead-Of-Time (AOT) compiler
+ * much smaller application that launches faster, especially on mobile devices and high latency networks
+ * ng compiler runs ahead of time as part of the build process, producing a collection of class factories in their own files
+ * the ngfactory will be phisically at the location
+*/
+/**
+ * import { platformBrowser } from '@angular/platform-browser';
+ * import { AppModuleNgFactory } from './app/app.module.ngfactory';
+ * platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+*/
