@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { appRoutes, appRoutingProviders } from './app.routes';
 
 import { AppComponent }  from './app.component';
+import { Demo }  from './demo';
 import { SharedComponents } from './components/shared.components';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        Demo
     ],
     imports: [
         BrowserModule,

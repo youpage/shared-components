@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { Demo } from './demo';
 
 const routes: Routes = [
-  { path: '', terminal:true, component: AppComponent}
+  { path: '', terminal:true, component: Demo}
 ];
 
 export const appRoutingProviders: any[] = [];

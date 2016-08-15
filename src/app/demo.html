@@ -1,11 +1,12 @@
-<h1>
-  {{title}}
-</h1>
-
 <p>Menu</p>
 <button type="button" shcButton icon="fa fa-list" label="MainMenu" (click)="menu.toggle($event)"></button>
 <shcMenu #menu popup="popup" [model]="items"></shcMenu>
 <hr />
+
+<p>Context Menu</p>
+<shcContextMenu [global]="true" [model]="items"></shcContextMenu>
+<label (contextmenu)="cmenu.toggle($event)" >rightclick here</label>
+<shcContextMenu #cmenu [global]="false" [model]="items"></shcContextMenu>
 
 <p>Tool Tip</p>
 <input type="text" shcTooltip="Enter your username" tooltipPosition="top" tooltipEvent="focus">
@@ -39,7 +40,3 @@
     <button type="button" shcButton (click)="clearGr()" icon="fa-close" style="float:right" label="Clear"></button>
 </div>
 <shc-growl [value]="growl" [sticky]="false" position="top-center"></shc-growl>
-
-<div>
-    <router-outlet></router-outlet>
-</div>
